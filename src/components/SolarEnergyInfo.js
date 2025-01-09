@@ -1,43 +1,66 @@
+// src/components/SolarEnergyInfo.js
 import React from 'react';
 import '../App.css';
+import { Container, Typography, Button } from '@mui/material';
+import Slider from 'react-slick';
+import solarImage1 from '../assets/Solar-energy1.jpg'; // Replace with actual image paths
+import solarImage2 from '../assets/Solar-energy2.jpg';
+import solarImage3 from '../assets/Solar-energy3.jpg';
 
 const SolarEnergyInfo = () => {
-  return (
-    <div className="container">
-      <header className="header">
-        <h1>Información sobre la Energía Solar</h1>
-      </header>
-      <section className="content">
-        <h2>¿Qué es la Energía Solar?</h2>
-        <p>
-          La energía solar es la energía que se obtiene del sol a través de tecnologías como los paneles solares fotovoltaicos y los colectores solares térmicos.
-        </p>
-        <h2>Beneficios de la Energía Solar</h2>
-        <ul>
-          <li><strong>Renovable:</strong> Es inagotable y está disponible en casi todas partes.</li>
-          <li><strong>Reducir Costos:</strong> Puede disminuir las facturas de electricidad a largo plazo.</li>
-          <li><strong>Menor Huella de Carbono:</strong> Ayuda a reducir las emisiones de gases de efecto invernadero.</li>
-        </ul>
-        <h2>Datos Estadísticos</h2>
-        <p>A continuación, se presentan algunos datos sobre el uso de energías renovables en África:</p>
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>Año</th>
-              <th>% Energías Renovables</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>2020</td><td>9.62%</td></tr>
-            <tr><td>2021</td><td>9.55%</td></tr>
-          </tbody>
-        </table>
-      </section>
-      <footer className="footer">
-        <p>&copy; 2025 Información sobre Energías Renovables</p>
-      </footer>
-    </div>
-  );
-}
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+    };
+
+    return (
+        <Container maxWidth="lg" style={{ padding: '20px', textAlign: 'center' }}>
+            <Typography variant="h3" gutterBottom>
+                Solar Energy Insights
+            </Typography>
+            <Typography variant="h6" paragraph>
+                Discover the impact of solar energy on our planet and explore data on renewable energy production.
+            </Typography>
+
+            <Slider {...settings}>
+                <div>
+                    <img 
+                        src={solarImage1} 
+                        alt="Solar Energy 1" 
+                        style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px' }} 
+                    />
+                    <Button variant="contained" color="primary" href="/dashboard" style={{ marginTop: '10px' }}>
+                        Learn More
+                    </Button>
+                </div>
+                <div>
+                    <img 
+                        src={solarImage2} 
+                        alt="Solar Energy 2" 
+                        style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px' }} 
+                    />
+                    <Button variant="contained" color="primary" href="/data-table" style={{ marginTop: '10px' }}>
+                        View Data
+                    </Button>
+                </div>
+                <div>
+                    <img 
+                        src={solarImage3} 
+                        alt="Solar Energy 3" 
+                        style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px' }} 
+                    />
+                    <Button variant="contained" color="primary" href="/energy-form" style={{ marginTop: '10px' }}>
+                        Take Action
+                    </Button>
+                </div>
+            </Slider>
+        </Container>
+    );
+};
 
 export default SolarEnergyInfo;
