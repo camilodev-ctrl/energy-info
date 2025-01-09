@@ -21,10 +21,10 @@ const SolarEnergyInfo = () => {
     return (
         <Container maxWidth="lg" style={{ padding: '20px', textAlign: 'center' }}>
             <Typography variant="h3" gutterBottom>
-                Solar Energy Insights
+               Energía solar
             </Typography>
             <Typography variant="h6" paragraph>
-                Discover the impact of solar energy on our planet and explore data on renewable energy production.
+              Descubra el impacto de la energía solar en nuestro planeta y explore datos sobre la producción de energías renovables.
             </Typography>
 
             <Slider {...settings}>
@@ -35,7 +35,7 @@ const SolarEnergyInfo = () => {
                         style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px' }} 
                     />
                     <Button variant="contained" color="primary" href="/dashboard" style={{ marginTop: '10px' }}>
-                        Learn More
+                        Saber más
                     </Button>
                 </div>
                 <div>
@@ -45,7 +45,7 @@ const SolarEnergyInfo = () => {
                         style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px' }} 
                     />
                     <Button variant="contained" color="primary" href="/data-table" style={{ marginTop: '10px' }}>
-                        View Data
+                        Ver datos
                     </Button>
                 </div>
                 <div>
@@ -55,7 +55,7 @@ const SolarEnergyInfo = () => {
                         style={{ width: '100%', height: 'auto', objectFit: 'cover', borderRadius: '8px' }} 
                     />
                     <Button variant="contained" color="primary" href="/energy-form" style={{ marginTop: '10px' }}>
-                        Take Action
+                        Participa
                     </Button>
                 </div>
             </Slider>

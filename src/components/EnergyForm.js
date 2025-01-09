@@ -1,48 +1,51 @@
-// src/components/EnergyForm.js
+
 import React, { useState } from 'react';
+import { Container, Typography, TextField, Button, Paper } from '@mui/material';
 
 const EnergyForm = () => {
     const [consumption, setConsumption] = useState('');
     const [result, setResult] = useState(null);
 
-    // Define the calculateRenewablePercentage function
     const calculateRenewablePercentage = (consumption) => {
-        // Implement your calculation logic based on your dataset
-        // For example, using a placeholder value for total renewable capacity
-        const totalRenewableCapacity = 100; // Replace this with actual calculation logic from your dataset
+        const totalRenewableCapacity = 100; // Replace with actual calculation logic
         const renewableShare = (totalRenewableCapacity / consumption) * 100;
-        return renewableShare.toFixed(2); // Return the result rounded to two decimal places
+        return renewableShare.toFixed(2);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Call the calculateRenewablePercentage function when form is submitted
         const renewablePercentage = calculateRenewablePercentage(consumption);
         setResult(renewablePercentage);
     };
 
     return (
-        <div>
-            <h2>Estimación de energía renovable</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Consumo de electricidad (en kWh):
-                    <input 
-                        type="number" 
-                        value={consumption} 
-                        onChange={(e) => setConsumption(e.target.value)} 
-                        required 
+        <Container maxWidth="sm" style={{ padding: '20px', textAlign: 'center' }}>
+            <Typography variant="h4" gutterBottom>
+                Estimación del porcentaje de energía renovable
+            </Typography>
+            <Paper elevation={3} style={{ padding: '20px' }}>
+                <form onSubmit={handleSubmit}>
+                    <TextField
+                        label="Consumo total de electricidad (kWh)"
+                        type="número"
+                        value={consumption}
+                        onChange={(e) => setConsumption(e.target.value)}
+                        fullWidth
+                        required
+                        margin="normal"
                     />
-                </label>
-                <button type="submit" className="button">Calcular</button>
-            </form>
+                    <Button variant="contained" color="primary" type="submit" fullWidth>
+                        Calcular
+                    </Button>
+                </form>
 
-            {result && (
-                <div>
-                    <h3>Porcentaje de energía renovable estimado: {result}%</h3>
-                </div>
-            )}
-        </div>
+                {result && (
+                    <Typography variant="h6" style={{ marginTop: '20px' }}>
+                     Porcentaje estimado de energía renovable: {result}%
+                    </Typography>
+                )}
+            </Paper>
+        </Container>
     );
 };
 
